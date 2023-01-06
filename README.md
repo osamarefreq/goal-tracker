@@ -5,6 +5,8 @@
 
 This is a simple goal tracker app that allows you to create goals and track your progress. It is built using Native JavaScript, HTML, and CSS.
 
+## Live Preview
+https://osamarefreq.github.io/goal-tracker/
 ## Features
 
 - Control goals Progress
