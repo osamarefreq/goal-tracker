@@ -1,0 +1,316 @@
+:root {
+    --dark: #1a1a1a;
+    --light: #f5f5f5;
+    --first-color: #E2B100;
+    --second-color: #E26D00;
+    --white: #fff;
+}
+
+@font-face {
+    font-family: 'Inter';
+    src: url('/fonts/Inter-VariableFont_slnt\,wght.ttf') format('truetype');
+}
+
+* {
+    font-family: 'Inter', sans-serif;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: var(--dark)!important;
+}
+
+#main {
+   margin-top: 3em;
+}
+
+.scene {
+    position: relative;
+    width: 830px;
+    height: 650px;
+    background-color: var(--light);
+    overflow: hidden;
+    margin: 0 auto;
+    border-radius: 10px;
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.5);
+}
+@media (max-width:960px) {
+    .scene {
+        width: 100%;
+        height: fit-content;
+        border-radius: 0px;
+    }
+}
+
+.year {
+    margin: auto;
+    background-color: var(--first-color);
+    width: fit-content;
+    padding: 0.1em 26px;
+    padding-bottom: 0.2em;
+    color: var(--white);
+    border-radius: 0px 0px 10px 10px;
+    font-style: normal;
+    font-weight: 900;
+    font-size: 32px;
+    line-height: 39px;
+    font-family: system-ui;
+    outline: none;
+    border: none;
+    width:200px;
+    text-align: center;
+    display: block;
+}
+
+.month {
+    margin: auto;
+    background-color: var(--second-color);
+    width: fit-content;
+    padding: 0em 8px;
+    padding-bottom: 0.1em;
+    color: var(--white);
+    font-style: normal;
+    font-weight: 900;
+    font-size: 22px;
+    line-height: 39px;
+    font-family: system-ui;
+    outline: none;
+    border: none;
+    width:70px;
+    text-align: center;
+    display: block;
+    margin-bottom: 0.3em;
+
+}
+
+.tasks {
+    display: flex;
+    flex-wrap: wrap;
+    margin: auto;
+    width: fit-content;
+    padding: 1em;
+    justify-content: space-between;
+}
+
+.task {
+    width: 240px;
+    height: 78px;
+    background: #FFFFFF;
+    border: 3px solid #E26D00;
+    border-radius: 9px;
+    margin-bottom: 2em;
+    position: relative;
+}
+
+.task .content {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 900;
+    font-size: 16px;
+    line-height: 19px;
+    text-align: center;
+    color: #1A1A1A;
+    margin: auto;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+}
+.content-input{
+    width: 100%;
+    height: 100%;
+    border: none;
+    outline: none;
+    background: none;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 900;
+    font-size: 16px;
+    line-height: 19px;
+    text-align: center;
+    color: #1A1A1A;
+    margin: auto;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.task .progress {
+    position: absolute;
+    bottom: 4;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90%;
+    height:8px;
+    background-color: #AFAFAF;
+    border-radius:9px;
+    z-index:4;
+}
+
+.task .progress .bar {
+    height: 100%;
+    background-color: #0AF44C;
+    width: 0%;
+    max-width: 100%;
+    border-radius:9px;
+}
+
+.task .buttons {
+    position: absolute;
+    top:-10;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 5;
+}
+.task .buttons .increase{
+    width: 20px;
+    height: 20px;
+    background-color: #0ec040;
+    border-radius: 10%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    color: #fff!important;
+    font-size: 12px;
+    font-weight: 900;
+    font-family: 'Inter';
+    text-decoration: none;
+}
+.task .buttons .decrease{
+    width: 20px;
+    height: 20px;
+    background-color: #e22900;
+    border-radius: 10%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    color: #fff!important;
+    font-size: 12px;
+    font-weight: 900;
+    font-family: 'Inter';
+    text-decoration: none;
+}
+.money{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.targetMoneyTitle{
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 900;
+    font-size: 16px;
+    line-height: 19px;
+    text-align: center;
+    color: var(--white);
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color:var(--second-color);
+    padding: 0.5em;
+    margin-left: 1em;
+}
+
+.target_money{
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 900;
+    font-size: 16px;
+    line-height: 19px;
+    text-align: center;
+    color: var(--dark);
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    outline:2px solid var(--second-color);
+    background-color:transparent;
+    padding: 0.3em;
+    margin-right: 1em;
+    width: 150px;
+}
+.collected{
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 900;
+    font-size: 16px;
+    line-height: 19px;
+    text-align: center;
+    color: var(--dark);
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    outline:2px solid var(--second-color);
+    background-color:transparent;
+    padding: 0.3em;
+    width: 150px;
+}
+.reset{
+   display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 1em;
+}
+
+.reset button{
+    height: 40px;
+    background: #000000;
+    border:1px solid white;
+    margin-bottom: 2em;
+    position: relative;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 900;
+    font-size: 10px;
+    line-height: 19px;
+    text-align: center;
+    color: var(--light);
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    padding: 0.3em 1em;
+}
+.reset button:hover{
+    background: #5c2e03;
+}
+
+
+.contacts{
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    margin-top: 1em;
+}
+.contacts a{
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 900;
+    font-size: 10px;
+    line-height: 19px; 
+    text-align: center;
+    color: var(--light);
+    margin-right: 1em;
+    text-decoration: none;
+    background-color:#000;
+    padding: 0.3em 1em;
+    border-radius: 0.5em;
+    border: 1px solid var(--light);
+}
