@@ -31,19 +31,22 @@ for (var i = 0; i < tasks.length; i++) {
         localStorage.setItem(input.id + '-' + year + '-' + month, 0);
     }
 }
-//loop through all .increase then get the value of the progress bar and increase it by 10 then save the value to local storage
-for (var i = 0; i < document.getElementsByClassName('increase').length; i++) {
+
+document.querySelectorAll('.increase').forEach(function (div) {
     var year;
     var month;
     //year is parent scene year attribute
-    year = document.getElementsByClassName('increase')[i].parentNode.parentNode.parentNode.parentNode.getAttribute('year');
+    year = div.parentNode.parentNode.parentNode.parentNode.getAttribute('year');
     //month is parent scene month attribute
-    month = document.getElementsByClassName('increase')[i].parentNode.parentNode.parentNode.parentNode.getAttribute('month');
-    document.getElementsByClassName('increase')[i].addEventListener('click', function () {
+    month = div.parentNode.parentNode.parentNode.parentNode.getAttribute('month');
+    div.addEventListener('click', function () {
         var input = this.parentNode.parentNode.getElementsByClassName('v')[0];
         var progress = this.parentNode.parentNode.getElementsByClassName('progress')[0];
         //get child of progress bar
         input.value = parseInt(localStorage.getItem(input.id + '-' + year + '-' + month));
+        if (input.value >= 100) {
+            return;
+        }
         var child = progress.children[0];
         var width = parseInt(input.value);
         child.style.width = width + 10 + '%';
@@ -51,20 +54,26 @@ for (var i = 0; i < document.getElementsByClassName('increase').length; i++) {
         input.value = parseInt(child.style.width);
         localStorage.setItem(input.id + '-' + year + '-' + month, child.style.width);
     });
-}
+});
+
 //loop through all .decrease then get the value of the progress bar and decrease it by 10 then save the value to local storage
-for (var i = 0; i < document.getElementsByClassName('decrease').length; i++) {
+document.querySelectorAll('.decrease').forEach(function (div) {
     var year;
     var month;
     //year is parent scene year attribute
-    year = document.getElementsByClassName('decrease')[i].parentNode.parentNode.parentNode.parentNode.getAttribute('year');
+    year =  div.parentNode.parentNode.parentNode.parentNode.getAttribute('year');   
     //month is parent scene month attribute
-    month = document.getElementsByClassName('decrease')[i].parentNode.parentNode.parentNode.parentNode.getAttribute('month');
-    document.getElementsByClassName('decrease')[i].addEventListener('click', function () {
+    month =  div.parentNode.parentNode.parentNode.parentNode.getAttribute('month');
+    div.addEventListener('click', function () {
         var input = this.parentNode.parentNode.getElementsByClassName('v')[0];
         var progress = this.parentNode.parentNode.getElementsByClassName('progress')[0];
         //get child of progress bar
         input.value = parseInt(localStorage.getItem(input.id + '-' + year + '-' + month));
+
+        //prevent the progress bar from going below 0
+        if (input.value <= 0) {
+            return;
+        }
         var child = progress.children[0];
         var width = parseInt(input.value);
         child.style.width = width - 10 + '%';
@@ -72,7 +81,8 @@ for (var i = 0; i < document.getElementsByClassName('decrease').length; i++) {
         input.value = parseInt(child.style.width);
         localStorage.setItem(input.id + '-' + year + '-' + month, child.style.width);
     });
-}
+});
+
 
 
 //on click to .content covert to .content-editable
